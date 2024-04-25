@@ -7,7 +7,18 @@ import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import reportWebVitals from './reportWebVitals';
 
+// Import DynamoDB module
+import { getItem } from '../services/dynamodb'; // Adjust path as needed
 
+// Preload some data
+const preloadData = async () => {
+  try {
+    const data = await getItem('someKey'); // Fetch data from DynamoDB
+    console.log('Preloaded data:', data);
+  } catch (error) {
+    console.error('Error preloading data:', error);
+  }
+};
 
 
 
